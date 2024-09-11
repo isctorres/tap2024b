@@ -1,0 +1,7 @@
+.root{
+    /*-fx-background-color: "#FF0000";*/
+    -fx-background-image: url("../images/wallpaper.jpeg"), url("../images/header.png");
+    -fx-background-repeat: stretch, no-repeat;
+    -fx-background-size: auto, 400px;
+    -fx-background-position: center, center;
+}
