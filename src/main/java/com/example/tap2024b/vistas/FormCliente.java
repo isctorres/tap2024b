@@ -3,6 +3,7 @@ package com.example.tap2024b.vistas;
 import com.example.tap2024b.models.ClienteDAO;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -43,7 +44,21 @@ public class FormCliente extends Stage {
     }
 
     private void GuardarCliente() {
+        objCte.setEmailCte(txtEmailCte.getText());
+        objCte.setNomCte(txtNomCte.getText());
+        objCte.setTelCte(txtTelCte.getText());
+        String msj;
+        Alert.AlertType type;
+        if( objCte.INSERT() > 0 ){
+            msj = "Registro insertado";
+            type = Alert.AlertType.INFORMATION;
+        }else{
+            msj = "Ocurrio un error al insertar, intente de nuevo";
+            type = Alert.AlertType.ERROR;
+        }
+        Alert alerta = new Alert(type);
+        alerta.setTitle("Mensaje del Sistema :)");
+        alerta.setContentText(msj);
+        alerta.showAndWait();
     }
-
-
 }
